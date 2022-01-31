@@ -2,8 +2,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 	<channel>
 		<title>Mattar Lab</title>
-		<link>http://kordinglab.com</link>
-		<atom:link href="http://kordinglab.com/feed.xml" rel="self" type="application/rss+xml" />
+		<link>http://bryanyuanson.github.io</link>
+		<atom:link href="http://bryanyuanson.github.io/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
 				<title>Welcome to Kording lab&apos;s blog</title>
@@ -11,8 +11,8 @@
 share it on the nice blog!&lt;/p&gt;
 </description>
 				<pubDate>Fri, 01 Jan 2016 00:00:00 -0800</pubDate>
-				<link>http://kordinglab.com/2016/01/01/hello.html</link>
-				<guid isPermaLink="true">http://kordinglab.com/2016/01/01/hello.html</guid>
+				<link>http://bryanyuanson.github.io/2016/01/01/hello.html</link>
+				<guid isPermaLink="true">http://bryanyuanson.github.io/2016/01/01/hello.html</guid>
 			</item>
 		
 			<item>
@@ -144,8 +144,8 @@ all ports and lets start installing all again!&lt;/p&gt;
 &lt;/ul&gt;
 </description>
 				<pubDate>Sat, 01 Aug 2015 00:00:00 -0700</pubDate>
-				<link>http://kordinglab.com/2015/08/01/macports.html</link>
-				<guid isPermaLink="true">http://kordinglab.com/2015/08/01/macports.html</guid>
+				<link>http://bryanyuanson.github.io/2015/08/01/macports.html</link>
+				<guid isPermaLink="true">http://bryanyuanson.github.io/2015/08/01/macports.html</guid>
 			</item>
 		
 			<item>
@@ -214,8 +214,8 @@ Password is the last name of the person who co-organizes ACMC with Konrad&lt;/p&
 &lt;/ul&gt;
 </description>
 				<pubDate>Mon, 01 Jun 2015 00:00:00 -0700</pubDate>
-				<link>http://kordinglab.com/2015/06/01/dream-dataset.html</link>
-				<guid isPermaLink="true">http://kordinglab.com/2015/06/01/dream-dataset.html</guid>
+				<link>http://bryanyuanson.github.io/2015/06/01/dream-dataset.html</link>
+				<guid isPermaLink="true">http://bryanyuanson.github.io/2015/06/01/dream-dataset.html</guid>
 			</item>
 		
 	</channel>
