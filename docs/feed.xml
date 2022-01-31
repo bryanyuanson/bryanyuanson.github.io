@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+	<channel>
+		<title>Mattar Lab</title>
+		<link>http://kordinglab.com</link>
+		<atom:link href="http://kordinglab.com/feed.xml" rel="self" type="application/rss+xml" />
+		
+			<item>
+				<title>Welcome to Kording lab&apos;s blog</title>
+        <description>&lt;p&gt;Some how we have a lot of good material on the page and it will be nice to
+share it on the nice blog!&lt;/p&gt;
+</description>
+				<pubDate>Fri, 01 Jan 2016 00:00:00 -0800</pubDate>
+				<link>http://kordinglab.com/2016/01/01/hello.html</link>
+				<guid isPermaLink="true">http://kordinglab.com/2016/01/01/hello.html</guid>
+			</item>
+		
+			<item>
+				<title>Installing Python using Macports (beginner guide)</title>
+        <description>&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt; that I now change from &lt;a href=&quot;https://www.macports.org/&quot;&gt;Macports&lt;/a&gt; to &lt;a href=&quot;http://brew.sh/&quot;&gt;Homebrew&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I think package management system is good for long-term installation. Since lab members use a lot of Apple product,
+I wrote Macports documentation which is package management system for Mac OSX which hopefully will be useful for members who use Mac. Note that this is not an official document but probably an easy way to get start with Macports. Macports depends mostly by its community and ones who update the port. We may have to migrate our ports when Mac announce new operating system. From my experience, it is normal to have some port problem with macports when new Mac operating system, for example, when Maverick or Yosemite was announced or when new XCode version were updated. It will
+take some time (a day or a week) for them to update the new port that are compatible
+with new operating system. But yeah, most ports work very well even though OS changes since
+the community is very active.&lt;/p&gt;
+
+&lt;h3 id=&quot;macports&quot;&gt;Macports&lt;/h3&gt;
+
+&lt;p&gt;In order to install Macports. Firstly, we need to install &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Xcode&lt;/code&gt; (see also the version of Xcode
+you have is not too old) and its commandline tools, X11 and some other things first. Then, we
+will install macports from the &lt;a href=&quot;https://www.macports.org/install.php&quot;&gt;macports website&lt;/a&gt; (see your OS and download the right one). All available ports are on this &lt;a href=&quot;https://www.macports.org/ports.php&quot;&gt;site&lt;/a&gt;. Note that the port name that are related to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python2.7&lt;/code&gt; will be in the form of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;py27-...&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;py-...&lt;/code&gt; e.g. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;py27-ipython&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;py27-pandas&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;py27-numpy&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;py27-scipy&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;py27-scikits-lean&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;py27-matplotlib&lt;/code&gt;. The name is different from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pip&lt;/code&gt; install.
+More note is to make sure that we have installed the command line in XCode. In order to
+check whether we have installed commandline tools in XCode and have Macports up-to-date, you can type as follow:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;xcode-select &lt;span class=&quot;nt&quot;&gt;--install&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;port &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt; selfupdate
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;As I have seen from now selfupdate should not take that long time. If it takes too long, probably
+something was wrong such as XCode version or Macports that we have installed. Also add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;macports&lt;/code&gt; path to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/.bash_profile&lt;/code&gt; to include &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;macports&lt;/code&gt; path (i.e. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;emacs ~/.bash_profile&lt;/code&gt;) as follows:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/opt/local/bin:/opt/local/sbin:&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;installing-python-27&quot;&gt;Installing Python 2.7&lt;/h3&gt;
+
+&lt;p&gt;After we get macports installed, there are almost 18000 ports that we can install from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;emacs&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vim&lt;/code&gt;
+to video downloader like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;youtube-dl&lt;/code&gt; or music player like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cmus&lt;/code&gt;. A lot of ports will have dependencies (we can check on the website above). When we download one port, its dependencies will come together. However, when we
+want to uninstall each port, we again need to uninstall its dependencies first before uninstall it.
+For &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python27&lt;/code&gt; (or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python version 2.7&lt;/code&gt;), I have some recommendation command line as follow:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;port &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;vim
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;port &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;emacs
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;port &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;git
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;port &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;python27
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;port &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;py27-matplotlib py27-numpy py27-scipy py27-ipython +notebook
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;port &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;opencv +python27
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;port &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;py27-pip
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Emacs&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Vim&lt;/code&gt; are classic text editors and also in this case, we use it to prove that our installation
+before worked. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pip&lt;/code&gt; is a package management to help you install python packages. We can use
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pip&lt;/code&gt; to install python library and update library. And to check recent version, install package and upgrade, we can use following commands:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip list &lt;span class=&quot;nt&quot;&gt;--outdated&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;pip &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;package name&apos;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;pip &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--upgrade&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;package name&apos;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Additional useful library including &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pandas&lt;/code&gt;(data analysis library) and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;scikits-learn&lt;/code&gt;(machine learning library):&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;port &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;py27-pandas py27-scikits-learn
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;installing-from-source-code&quot;&gt;Installing from source code&lt;/h3&gt;
+
+&lt;p&gt;Sometimes, if you want to install developing version of the package or you want to install package that
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;macports&lt;/code&gt; does not provide. We can use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git&lt;/code&gt; to clone source code directly and install. Here is an
+example of how to install &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tornado&lt;/code&gt; package (other packages works in similar flow).&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/tornadoweb/tornado
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;tornado
+python setup.py build
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;python setup.py &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;select-python-version-and-run&quot;&gt;Select Python version and run&lt;/h3&gt;
+
+&lt;p&gt;We want to set usual &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python&lt;/code&gt; command to replace &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python27&lt;/code&gt; and also &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ipython&lt;/code&gt;. This is the way to setup,&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;port &lt;span class=&quot;k&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--set&lt;/span&gt; python python27 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;or python33 &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;the future&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;port &lt;span class=&quot;k&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--set&lt;/span&gt; ipython ipython27
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;We can run python by typing given command line in the terminal by either of this command line:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ipython
+ipython notebook &lt;span class=&quot;nt&quot;&gt;--profile&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;profile_name&apos;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;some-useful-macports-command-line&quot;&gt;Some useful Macports command line&lt;/h3&gt;
+
+&lt;p&gt;The full documentation &lt;a href=&quot;https://guide.macports.org/&quot;&gt;link&lt;/a&gt; is given if you want to search for more command.
+However, I have some command that I mostly use including how to install specific port, uninstall ports and search ports.&lt;/p&gt;
+
+&lt;p&gt;To uninstall or uninstall with dependent port:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;port uninstall &lt;span class=&quot;s1&quot;&gt;&apos;portname&apos;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;port uninstall &lt;span class=&quot;nt&quot;&gt;--follow-dependents&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;portname&apos;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This command will print the list of port that we have installed and will note active if the port
+are currently in used&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;port installed
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This command line is used to update the Macport itself. Options can be added such
+as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-d&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-v&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-f&lt;/code&gt;, to see how it works search for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bash options&lt;/code&gt;, for example.&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;port selfupdate
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Once in a while, we can run this line to uninstall inactive ports.&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;port uninstall inactive
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;I know sometime we mess up the port and may have no way to fix it. This is how to uninstall
+all ports and lets start installing all again!&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;port &lt;span class=&quot;nt&quot;&gt;-fp&lt;/span&gt; uninstall installed
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Another useful port commands include:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;port search &amp;lt;part_of_port_name&amp;gt;&lt;/code&gt; search ports that are closed/related to the given ports&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;port dependents &amp;lt;port_name&amp;gt;&lt;/code&gt; list all dependent ports under &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;port_name&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;some-unix-command-line&quot;&gt;Some UNIX command line&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;To see the type history that you used before, use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;history&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Simple change the directory &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cd ...&lt;/code&gt; (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cd ..&lt;/code&gt; is to move up one directory)&lt;/li&gt;
+  &lt;li&gt;See the directory of python that we currently used &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;which python / which ipython&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Emacs&lt;/code&gt; shortcuts &lt;a href=&quot;http://www.shortcutworld.com/en/linux/Emacs_23.2.1.html&quot;&gt;link&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;How to create and custom ipython profile &lt;a href=&quot;https://github.com/titipata/klab_ipython_notebook&quot;&gt;link&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+				<pubDate>Sat, 01 Aug 2015 00:00:00 -0700</pubDate>
+				<link>http://kordinglab.com/2015/08/01/macports.html</link>
+				<guid isPermaLink="true">http://kordinglab.com/2015/08/01/macports.html</guid>
+			</item>
+		
+			<item>
+				<title>Database for Reaching Experiments and Models (DREAM)</title>
+        <description>&lt;p&gt;The Database for Reaching Experiments and Models (DREAM) is a collaborative database that contains experimental data and models acquired through research from the field of computational neuroscience.&lt;/p&gt;
+
+&lt;h3 id=&quot;where-to-download&quot;&gt;Where to Download&lt;/h3&gt;
+
+&lt;p&gt;The database can be downloaded from &lt;a href=&quot;http://crcns.org/data-sets/movements/dream/&quot;&gt;http://crcns.org/data-sets/movements/dream/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;welcome-information&quot;&gt;Welcome Information&lt;/h3&gt;
+
+&lt;p&gt;Our friends at CRCNS have graciously allowed us to keep our data on their site. If you’d like to download models, tools, or experimental data, go to our page on their website&lt;/p&gt;
+
+&lt;p&gt;This entire page is a wiki. As such, we welcome anyone to edit it, make suggestions etc.
+Login is Guest&lt;br /&gt;
+Password is the last name of the person who co-organizes ACMC with Konrad&lt;/p&gt;
+
+&lt;p&gt;Grant PIs: Kording, Miller, Ostry, Thoroughman&lt;/p&gt;
+
+&lt;h3 id=&quot;how-dream-will-help&quot;&gt;How DREAM will help&lt;/h3&gt;
+
+&lt;p&gt;The general question of how people and animals move and learn to do so is one of the most challenging questions in neuroscience, biomechanics, computer science, statistics and psychology. Scientists within the reaching community study voluntary reaching movements made by humans and non-human primates. Many topics such as learning and adaptation, the role of the biomechanics in the control of movement, and sensory integration are studied by the reaching community and applied towards clinically relevant goals. The goals of these reaching studies are to uncover fundamental principles at the system level, to identify the underlying neural substrate(s) and to find clinically relevant tests and interventions. We believe that our database project will significantly accelerate progress toward these goals, as it benefits the modeling, physiological, clinical, behavioral, and experiment-focused communities that focus on reaching.&lt;/p&gt;
+
+&lt;p&gt;For the modeling community a broad database facilitates testing a model against multiple datasets and offers a unique benchmark for testing new models against both experimental data and current theories. For the electrophysiological community the database facilitates the search for links between motor behavior and its neural underpinning. For the clinical community the database provides benchmarks to compare patients to. For the behavioral community such a database facilitates the identification of unknown and unanswered empirical questions. For experimentalists, this database will facilitate disproving models and designing experiments that efficiently distinguish between models.&lt;/p&gt;
+
+&lt;p&gt;Also, the availability of the results of experiments and models will make it easier for scientists working in other fields, say, computational sciences, to model movement, thus lowering the barrier to entry for scientists from outside of the community. Their entry into the reaching community will also be facilitated by the &lt;a href=&quot;http://klab.smpp.northwestern.edu/wiki/index.php5/Workshops&quot;&gt;workshops&lt;/a&gt;, &lt;a href=&quot;http://klab.smpp.northwestern.edu/wiki/index.php5/Summer_School&quot;&gt;Summer School&lt;/a&gt; and &lt;a href=&quot;http://klab.smpp.northwestern.edu/wiki/index.php5/Competitions&quot;&gt;competitions&lt;/a&gt; planned to take place in upcoming years. Also, wide areas of medicine, cognitive science, and computer science may expect to benefit from this project. Indeed, movement related research is of high medical and practical importance for movement rehabilitation.&lt;/p&gt;
+
+&lt;h3 id=&quot;why-dream-is-needed&quot;&gt;Why DREAM is needed&lt;/h3&gt;
+
+&lt;p&gt;The DREAM project will benefit from the tight integration of modeling and experimentation that is a hallmark feature of the reaching community. However the community is unfortunately somewhat divided between groups favoring different paradigms, focusing on equilibrium point control, internal models, uncontrolled manifolds, dynamical systems, or probabilistic approaches. We believe that this database will simplify the comparison of approaches and facilitate their synthesis into new approaches.&lt;/p&gt;
+
+&lt;p&gt;It can be argued that a good model should ideally explain data from several labs and that a good experiment should not try to falsify a single model, but should ideally strive to falsify a good number of them. Indeed, over the last couple of years several labs have introduced models of motor control and motor adaptation and learning that explain multiple data sets from several labs (e.g. Flash and Hogan, 1985; Harris and Wolpert, 1998; Smith et al., 2006; Kording et al., 2007). Our goal is to provide the opportunity for many people in the field to challenge current ideas and uncover new ones as we continue to seek models of movement that are increasingly accurate.&lt;/p&gt;
+
+&lt;h3 id=&quot;how-do-i-use-or-get-involved-with-dream&quot;&gt;How do I use or get involved with DREAM?&lt;/h3&gt;
+
+&lt;p&gt;We need both users and content providers. We sincerely expect most people to be both. We’d love to help our database grow, so if you would like to &lt;a href=&quot;http://klab.smpp.northwestern.edu/wiki/index.php5/Share_models_and_data&quot;&gt;share your models or data&lt;/a&gt; with us, please do so! But we also want this project to be accessible to many people. For those with limited access to lab time and/or equipment, DREAM could provide a way to make meaningful contributions to the field by doing data analysis.&lt;/p&gt;
+
+&lt;h3 id=&quot;what-the-dream-project-will-involve&quot;&gt;What the DREAM project will involve&lt;/h3&gt;
+
+&lt;p&gt;We are developing a joint database designed so that many potential models of reaching can be appraised with multiple experimental datasets. Our aim is to serve every interested experimental or modeling lab. We need the help of the scientists, researchers, students, subjects, and labs involved with reaching research. If you are interested, please &lt;a href=&quot;http://klab.smpp.northwestern.edu/wiki/index.php5/Share_models_and_data&quot;&gt;share models and data&lt;/a&gt; with us!&lt;/p&gt;
+
+&lt;p&gt;This project also focuses on activities aimed at making this joint database maximally useful: &lt;a href=&quot;http://klab.smpp.northwestern.edu/wiki/index.php5/Workshops&quot;&gt;workshops&lt;/a&gt;, &lt;a href=&quot;http://klab.smpp.northwestern.edu/wiki/index.php5/Summer_School&quot;&gt;Summer School&lt;/a&gt; and &lt;a href=&quot;http://klab.smpp.northwestern.edu/wiki/index.php5/Competitions&quot;&gt;competitions&lt;/a&gt; will happen in the near future.&lt;/p&gt;
+
+&lt;h3 id=&quot;current-status&quot;&gt;Current status&lt;/h3&gt;
+
+&lt;p&gt;Right now, we’re working to increase the amount of data sets we have to offer. We also welcome anyone to reach out to us if they would like to run their models against our current sets.&lt;/p&gt;
+
+&lt;h3 id=&quot;future&quot;&gt;Future&lt;/h3&gt;
+
+&lt;p&gt;Along with continually seeking to add new data and models to our database, we are always looking for ways to improve our database. Please share your ideas with us. Let us know if you have any questions, comments, or “Eureka!” moments that could help us better serve the reaching community.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2013&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;In 2013 we will be aim to broaden the scope of the project. It starts with a workshop and Summer School that will make it easier for new participants to join the effort. Progress and challenges will be discussed and addressed, as we seek to add datasets that are progressively dissimilar to previously added data. Specific emphasis will be on datasets that combine reaching movements with imaging or electrophysiological data.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;contact-us&quot;&gt;Contact us&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Share your &lt;a href=&quot;http://klab.smpp.northwestern.edu/wiki/index.php5/Ideas&quot;&gt;ideas&lt;/a&gt; on our discussion page.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://klab.smpp.northwestern.edu/wiki/index.php5/Share_models_and_data&quot;&gt;Share models and data&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;email us at &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;reachingdatabase@gmail.com&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+				<pubDate>Mon, 01 Jun 2015 00:00:00 -0700</pubDate>
+				<link>http://kordinglab.com/2015/06/01/dream-dataset.html</link>
+				<guid isPermaLink="true">http://kordinglab.com/2015/06/01/dream-dataset.html</guid>
+			</item>
+		
+	</channel>
+</rss>

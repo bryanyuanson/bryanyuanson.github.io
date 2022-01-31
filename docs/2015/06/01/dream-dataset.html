@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<!--
+
+  _                    _  _                 _         _
+ | |                  | |(_)               | |       | |
+ | | __ ___   _ __  __| | _  _ __    __ _  | |  __ _ | |__
+ | |/ // _ \ | '__|/ _` || || '_ \  / _` | | | / _` || '_ \
+ |   <| (_) || |  | (_| || || | | || (_| | | || (_| || |_) |
+ |_|\_\\___/ |_|   \__,_||_||_| |_| \__, | |_| \__,_||_.__/
+                                     __/ |
+                                    |___/
+
+
+I love those that desire the impossible - Goethe.
+(if you get email from Konrad, you will see this quote)
+
+                boing         boing         boing
+      e-e           . - .         . - .         . - .
+     (\_/)\       '       `.   ,'       `.   ,'       .
+      `-'\ `--.___,         . .           . .          .
+         '\( ,_.-'
+            \\               "             "            a:f
+            ^'
+
+^ This is basically T-Rex jumping
+
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Database for Reaching Experiments and Models (DREAM)</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,600">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+  <link href="http://kordinglab.com/css/zoom.css" rel="stylesheet">
+  <script src="http://kordinglab.com/js/zoom.js"></script>
+  <script src="http://kordinglab.com/js/transition.js"></script>
+
+  <link rel="stylesheet" href="/style.css">
+  <!-- favicon -->
+  <link rel="shortcut icon" href="http://kordinglab.com/favicon.ico">
+  <link rel="shortcut icon" href="http://kordinglab.com/favicon.png">
+  <link rel="apple-touch-icon-precomposed" href="http://kordinglab.com/images/logo/apple-touch-icon-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://kordinglab.com/images/logo/apple-touch-icon-72x72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://kordinglab.com/images/logo/apple-touch-icon-114x114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://kordinglab.com/images/logo/apple-touch-icon-144x144-precomposed.png">
+
+  <!-- open graph -->
+
+  
+  
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="http://kordinglab.com/2015/06/01/dream-dataset.html">
+  <meta property="og:title" content="Database for Reaching Experiments and Models (DREAM)">
+  <meta property="og:site_name" content="Mattar Lab at University of California San Diego">
+  <meta property="og:description" content="The Database for Reaching Experiments and Models (DREAM) is a collaborative database that contains experimental data and models acquired through re..." />
+  <meta property="og:image" content="http://kordinglab.com/images/logo/logo_square.jpg">
+
+</head>
+
+<script>
+/**
+* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+
+s.src = '//kordinglab.disqus.com/embed.js';
+
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+<body id="page-top" style="padding-top: 7em;">
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class='navbar-brand page-scroll' href='/'>
+              <span style='font-family:"Open Sans" font-weight:300'>Mattar Lab</span>
+              </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <ul class="nav navbar-nav navbar-right">
+                      
+                      <li><a class='name' href="/">home</a></li>
+                      
+                      <li><a class='name' href="/about">about</a></li>
+                      
+                      <li><a class='name' href="/publication">publications</a></li>
+                      
+                      <li><a class='name' href="/people">people</a></li>
+                      
+                      <li><a class='name' href="/blog">blog</a></li>
+                      
+                      <li><a class='name' href="/resources">resources</a></li>
+                      
+                    </ul>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+</nav>
+
+    <div class="container content post">
+  <h3><strong>Database for Reaching Experiments and Models (DREAM)</strong><br/>
+  <small>posted on June 1, 2015</small></h3>
+  <hr>
+  <p>The Database for Reaching Experiments and Models (DREAM) is a collaborative database that contains experimental data and models acquired through research from the field of computational neuroscience.</p>
+
+<h3 id="where-to-download">Where to Download</h3>
+
+<p>The database can be downloaded from <a href="http://crcns.org/data-sets/movements/dream/">http://crcns.org/data-sets/movements/dream/</a></p>
+
+<h3 id="welcome-information">Welcome Information</h3>
+
+<p>Our friends at CRCNS have graciously allowed us to keep our data on their site. If you’d like to download models, tools, or experimental data, go to our page on their website</p>
+
+<p>This entire page is a wiki. As such, we welcome anyone to edit it, make suggestions etc.
+Login is Guest<br />
+Password is the last name of the person who co-organizes ACMC with Konrad</p>
+
+<p>Grant PIs: Kording, Miller, Ostry, Thoroughman</p>
+
+<h3 id="how-dream-will-help">How DREAM will help</h3>
+
+<p>The general question of how people and animals move and learn to do so is one of the most challenging questions in neuroscience, biomechanics, computer science, statistics and psychology. Scientists within the reaching community study voluntary reaching movements made by humans and non-human primates. Many topics such as learning and adaptation, the role of the biomechanics in the control of movement, and sensory integration are studied by the reaching community and applied towards clinically relevant goals. The goals of these reaching studies are to uncover fundamental principles at the system level, to identify the underlying neural substrate(s) and to find clinically relevant tests and interventions. We believe that our database project will significantly accelerate progress toward these goals, as it benefits the modeling, physiological, clinical, behavioral, and experiment-focused communities that focus on reaching.</p>
+
+<p>For the modeling community a broad database facilitates testing a model against multiple datasets and offers a unique benchmark for testing new models against both experimental data and current theories. For the electrophysiological community the database facilitates the search for links between motor behavior and its neural underpinning. For the clinical community the database provides benchmarks to compare patients to. For the behavioral community such a database facilitates the identification of unknown and unanswered empirical questions. For experimentalists, this database will facilitate disproving models and designing experiments that efficiently distinguish between models.</p>
+
+<p>Also, the availability of the results of experiments and models will make it easier for scientists working in other fields, say, computational sciences, to model movement, thus lowering the barrier to entry for scientists from outside of the community. Their entry into the reaching community will also be facilitated by the <a href="http://klab.smpp.northwestern.edu/wiki/index.php5/Workshops">workshops</a>, <a href="http://klab.smpp.northwestern.edu/wiki/index.php5/Summer_School">Summer School</a> and <a href="http://klab.smpp.northwestern.edu/wiki/index.php5/Competitions">competitions</a> planned to take place in upcoming years. Also, wide areas of medicine, cognitive science, and computer science may expect to benefit from this project. Indeed, movement related research is of high medical and practical importance for movement rehabilitation.</p>
+
+<h3 id="why-dream-is-needed">Why DREAM is needed</h3>
+
+<p>The DREAM project will benefit from the tight integration of modeling and experimentation that is a hallmark feature of the reaching community. However the community is unfortunately somewhat divided between groups favoring different paradigms, focusing on equilibrium point control, internal models, uncontrolled manifolds, dynamical systems, or probabilistic approaches. We believe that this database will simplify the comparison of approaches and facilitate their synthesis into new approaches.</p>
+
+<p>It can be argued that a good model should ideally explain data from several labs and that a good experiment should not try to falsify a single model, but should ideally strive to falsify a good number of them. Indeed, over the last couple of years several labs have introduced models of motor control and motor adaptation and learning that explain multiple data sets from several labs (e.g. Flash and Hogan, 1985; Harris and Wolpert, 1998; Smith et al., 2006; Kording et al., 2007). Our goal is to provide the opportunity for many people in the field to challenge current ideas and uncover new ones as we continue to seek models of movement that are increasingly accurate.</p>
+
+<h3 id="how-do-i-use-or-get-involved-with-dream">How do I use or get involved with DREAM?</h3>
+
+<p>We need both users and content providers. We sincerely expect most people to be both. We’d love to help our database grow, so if you would like to <a href="http://klab.smpp.northwestern.edu/wiki/index.php5/Share_models_and_data">share your models or data</a> with us, please do so! But we also want this project to be accessible to many people. For those with limited access to lab time and/or equipment, DREAM could provide a way to make meaningful contributions to the field by doing data analysis.</p>
+
+<h3 id="what-the-dream-project-will-involve">What the DREAM project will involve</h3>
+
+<p>We are developing a joint database designed so that many potential models of reaching can be appraised with multiple experimental datasets. Our aim is to serve every interested experimental or modeling lab. We need the help of the scientists, researchers, students, subjects, and labs involved with reaching research. If you are interested, please <a href="http://klab.smpp.northwestern.edu/wiki/index.php5/Share_models_and_data">share models and data</a> with us!</p>
+
+<p>This project also focuses on activities aimed at making this joint database maximally useful: <a href="http://klab.smpp.northwestern.edu/wiki/index.php5/Workshops">workshops</a>, <a href="http://klab.smpp.northwestern.edu/wiki/index.php5/Summer_School">Summer School</a> and <a href="http://klab.smpp.northwestern.edu/wiki/index.php5/Competitions">competitions</a> will happen in the near future.</p>
+
+<h3 id="current-status">Current status</h3>
+
+<p>Right now, we’re working to increase the amount of data sets we have to offer. We also welcome anyone to reach out to us if they would like to run their models against our current sets.</p>
+
+<h3 id="future">Future</h3>
+
+<p>Along with continually seeking to add new data and models to our database, we are always looking for ways to improve our database. Please share your ideas with us. Let us know if you have any questions, comments, or “Eureka!” moments that could help us better serve the reaching community.</p>
+
+<p><strong>2013</strong></p>
+<blockquote>
+  <p>In 2013 we will be aim to broaden the scope of the project. It starts with a workshop and Summer School that will make it easier for new participants to join the effort. Progress and challenges will be discussed and addressed, as we seek to add datasets that are progressively dissimilar to previously added data. Specific emphasis will be on datasets that combine reaching movements with imaging or electrophysiological data.</p>
+</blockquote>
+
+<hr />
+
+<h3 id="contact-us">Contact us</h3>
+
+<ul>
+  <li>Share your <a href="http://klab.smpp.northwestern.edu/wiki/index.php5/Ideas">ideas</a> on our discussion page.</li>
+  <li><a href="http://klab.smpp.northwestern.edu/wiki/index.php5/Share_models_and_data">Share models and data</a></li>
+  <li>email us at <code class="language-plaintext highlighter-rouge">reachingdatabase@gmail.com</code></li>
+</ul>
+
+  <ul class="share-buttons">
+  <a style="color:#3b5998;" href="https://www.facebook.com/sharer/sharer.php?u=http://kordinglab.com/2015/06/01/dream-dataset.html" title="Share on Facebook" target="_blank"><i class="fa fa-facebook-square fa-2x"></i></a>
+  <a style="color:#0084b4;" href="https://twitter.com/intent/tweet?text=http://kordinglab.com/2015/06/01/dream-dataset.html" title="Share on Twitter" target="_blank"><i class="fa fa-twitter-square fa-2x"></i></a>
+</ul>
+
+  <div id="disqus_thread"></div>
+</div>
+
+
+    <script id="dsq-count-scr" src="//kordinglab.disqus.com/count.js" async></script>
+    <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    var pageTracker = _gat._getTracker("UA-34145995-1");
+    pageTracker._trackPageview();
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-34145995-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-34145995-1');
+    </script>
+
+</body>
+</html>

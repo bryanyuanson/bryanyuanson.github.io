@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<!--
+
+  _                    _  _                 _         _
+ | |                  | |(_)               | |       | |
+ | | __ ___   _ __  __| | _  _ __    __ _  | |  __ _ | |__
+ | |/ // _ \ | '__|/ _` || || '_ \  / _` | | | / _` || '_ \
+ |   <| (_) || |  | (_| || || | | || (_| | | || (_| || |_) |
+ |_|\_\\___/ |_|   \__,_||_||_| |_| \__, | |_| \__,_||_.__/
+                                     __/ |
+                                    |___/
+
+
+I love those that desire the impossible - Goethe.
+(if you get email from Konrad, you will see this quote)
+
+                boing         boing         boing
+      e-e           . - .         . - .         . - .
+     (\_/)\       '       `.   ,'       `.   ,'       .
+      `-'\ `--.___,         . .           . .          .
+         '\( ,_.-'
+            \\               "             "            a:f
+            ^'
+
+^ This is basically T-Rex jumping
+
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Installing Python using Macports (beginner guide)</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,600">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+  <link href="http://kordinglab.com/css/zoom.css" rel="stylesheet">
+  <script src="http://kordinglab.com/js/zoom.js"></script>
+  <script src="http://kordinglab.com/js/transition.js"></script>
+
+  <link rel="stylesheet" href="/style.css">
+  <!-- favicon -->
+  <link rel="shortcut icon" href="http://kordinglab.com/favicon.ico">
+  <link rel="shortcut icon" href="http://kordinglab.com/favicon.png">
+  <link rel="apple-touch-icon-precomposed" href="http://kordinglab.com/images/logo/apple-touch-icon-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://kordinglab.com/images/logo/apple-touch-icon-72x72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://kordinglab.com/images/logo/apple-touch-icon-114x114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://kordinglab.com/images/logo/apple-touch-icon-144x144-precomposed.png">
+
+  <!-- open graph -->
+
+  
+  
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="http://kordinglab.com/2015/08/01/macports.html">
+  <meta property="og:title" content="Installing Python using Macports (beginner guide)">
+  <meta property="og:site_name" content="Mattar Lab at University of California San Diego">
+  <meta property="og:description" content="
+  Installing Python using Macports (beginner guide)
+  posted on August 1, 2015
+  
+  Note that I now change from Macports to Homebrew
+
+I think pack..." />
+  <meta property="og:image" content="http://kordinglab.com/images/logo/logo_square.jpg">
+
+</head>
+
+<script>
+/**
+* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+
+s.src = '//kordinglab.disqus.com/embed.js';
+
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+<body id="page-top" style="padding-top: 7em;">
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class='navbar-brand page-scroll' href='/'>
+              <span style='font-family:"Open Sans" font-weight:300'>Mattar Lab</span>
+              </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <ul class="nav navbar-nav navbar-right">
+                      
+                      <li><a class='name' href="/">home</a></li>
+                      
+                      <li><a class='name' href="/about">about</a></li>
+                      
+                      <li><a class='name' href="/publication">publications</a></li>
+                      
+                      <li><a class='name' href="/people">people</a></li>
+                      
+                      <li><a class='name' href="/blog">blog</a></li>
+                      
+                      <li><a class='name' href="/resources">resources</a></li>
+                      
+                    </ul>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+</nav>
+
+    <div class="container content post">
+  <h3><strong>Installing Python using Macports (beginner guide)</strong><br/>
+  <small>posted on August 1, 2015</small></h3>
+  <hr>
+  <p><strong>Note</strong> that I now change from <a href="https://www.macports.org/">Macports</a> to <a href="http://brew.sh/">Homebrew</a></p>
+
+<p>I think package management system is good for long-term installation. Since lab members use a lot of Apple product,
+I wrote Macports documentation which is package management system for Mac OSX which hopefully will be useful for members who use Mac. Note that this is not an official document but probably an easy way to get start with Macports. Macports depends mostly by its community and ones who update the port. We may have to migrate our ports when Mac announce new operating system. From my experience, it is normal to have some port problem with macports when new Mac operating system, for example, when Maverick or Yosemite was announced or when new XCode version were updated. It will
+take some time (a day or a week) for them to update the new port that are compatible
+with new operating system. But yeah, most ports work very well even though OS changes since
+the community is very active.</p>
+
+<h3 id="macports">Macports</h3>
+
+<p>In order to install Macports. Firstly, we need to install <code class="language-plaintext highlighter-rouge">Xcode</code> (see also the version of Xcode
+you have is not too old) and its commandline tools, X11 and some other things first. Then, we
+will install macports from the <a href="https://www.macports.org/install.php">macports website</a> (see your OS and download the right one). All available ports are on this <a href="https://www.macports.org/ports.php">site</a>. Note that the port name that are related to <code class="language-plaintext highlighter-rouge">python2.7</code> will be in the form of <code class="language-plaintext highlighter-rouge">py27-...</code> or <code class="language-plaintext highlighter-rouge">py-...</code> e.g. <code class="language-plaintext highlighter-rouge">py27-ipython</code>, <code class="language-plaintext highlighter-rouge">py27-pandas</code>, <code class="language-plaintext highlighter-rouge">py27-numpy</code>, <code class="language-plaintext highlighter-rouge">py27-scipy</code>, <code class="language-plaintext highlighter-rouge">py27-scikits-lean</code>, <code class="language-plaintext highlighter-rouge">py27-matplotlib</code>. The name is different from <code class="language-plaintext highlighter-rouge">pip</code> install.
+More note is to make sure that we have installed the command line in XCode. In order to
+check whether we have installed commandline tools in XCode and have Macports up-to-date, you can type as follow:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>xcode-select <span class="nt">--install</span>
+<span class="nb">sudo </span>port <span class="nt">-v</span> selfupdate
+</code></pre></div></div>
+
+<p>As I have seen from now selfupdate should not take that long time. If it takes too long, probably
+something was wrong such as XCode version or Macports that we have installed. Also add <code class="language-plaintext highlighter-rouge">macports</code> path to <code class="language-plaintext highlighter-rouge">~/.bash_profile</code> to include <code class="language-plaintext highlighter-rouge">macports</code> path (i.e. <code class="language-plaintext highlighter-rouge">emacs ~/.bash_profile</code>) as follows:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">"/opt/local/bin:/opt/local/sbin:</span><span class="nv">$PATH</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<h3 id="installing-python-27">Installing Python 2.7</h3>
+
+<p>After we get macports installed, there are almost 18000 ports that we can install from <code class="language-plaintext highlighter-rouge">git</code>, <code class="language-plaintext highlighter-rouge">emacs</code>, <code class="language-plaintext highlighter-rouge">vim</code>
+to video downloader like <code class="language-plaintext highlighter-rouge">youtube-dl</code> or music player like <code class="language-plaintext highlighter-rouge">cmus</code>. A lot of ports will have dependencies (we can check on the website above). When we download one port, its dependencies will come together. However, when we
+want to uninstall each port, we again need to uninstall its dependencies first before uninstall it.
+For <code class="language-plaintext highlighter-rouge">python27</code> (or <code class="language-plaintext highlighter-rouge">python version 2.7</code>), I have some recommendation command line as follow:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>port <span class="nb">install </span>vim
+<span class="nb">sudo </span>port <span class="nb">install </span>emacs
+<span class="nb">sudo </span>port <span class="nb">install </span>git
+<span class="nb">sudo </span>port <span class="nb">install </span>python27
+<span class="nb">sudo </span>port <span class="nb">install </span>py27-matplotlib py27-numpy py27-scipy py27-ipython +notebook
+<span class="nb">sudo </span>port <span class="nb">install </span>opencv +python27
+<span class="nb">sudo </span>port <span class="nb">install </span>py27-pip
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">Emacs</code> and <code class="language-plaintext highlighter-rouge">Vim</code> are classic text editors and also in this case, we use it to prove that our installation
+before worked. <code class="language-plaintext highlighter-rouge">pip</code> is a package management to help you install python packages. We can use
+<code class="language-plaintext highlighter-rouge">pip</code> to install python library and update library. And to check recent version, install package and upgrade, we can use following commands:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip list <span class="nt">--outdated</span>
+<span class="nb">sudo </span>pip <span class="nb">install</span> <span class="s1">'package name'</span>
+<span class="nb">sudo </span>pip <span class="nb">install</span> <span class="nt">--upgrade</span> <span class="s1">'package name'</span>
+</code></pre></div></div>
+
+<p>Additional useful library including <code class="language-plaintext highlighter-rouge">pandas</code>(data analysis library) and <code class="language-plaintext highlighter-rouge">scikits-learn</code>(machine learning library):</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>port <span class="nb">install </span>py27-pandas py27-scikits-learn
+</code></pre></div></div>
+
+<h3 id="installing-from-source-code">Installing from source code</h3>
+
+<p>Sometimes, if you want to install developing version of the package or you want to install package that
+<code class="language-plaintext highlighter-rouge">macports</code> does not provide. We can use <code class="language-plaintext highlighter-rouge">git</code> to clone source code directly and install. Here is an
+example of how to install <code class="language-plaintext highlighter-rouge">tornado</code> package (other packages works in similar flow).</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/tornadoweb/tornado
+<span class="nb">cd </span>tornado
+python setup.py build
+<span class="nb">sudo </span>python setup.py <span class="nb">install</span>
+</code></pre></div></div>
+
+<h3 id="select-python-version-and-run">Select Python version and run</h3>
+
+<p>We want to set usual <code class="language-plaintext highlighter-rouge">python</code> command to replace <code class="language-plaintext highlighter-rouge">python27</code> and also <code class="language-plaintext highlighter-rouge">ipython</code>. This is the way to setup,</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>port <span class="k">select</span> <span class="nt">--set</span> python python27 <span class="o">(</span>or python33 <span class="k">in </span>the future<span class="o">)</span>
+<span class="nb">sudo </span>port <span class="k">select</span> <span class="nt">--set</span> ipython ipython27
+</code></pre></div></div>
+
+<p>We can run python by typing given command line in the terminal by either of this command line:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ipython
+ipython notebook <span class="nt">--profile</span> <span class="s1">'profile_name'</span>
+</code></pre></div></div>
+
+<h3 id="some-useful-macports-command-line">Some useful Macports command line</h3>
+
+<p>The full documentation <a href="https://guide.macports.org/">link</a> is given if you want to search for more command.
+However, I have some command that I mostly use including how to install specific port, uninstall ports and search ports.</p>
+
+<p>To uninstall or uninstall with dependent port:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>port uninstall <span class="s1">'portname'</span>
+<span class="nb">sudo </span>port uninstall <span class="nt">--follow-dependents</span> <span class="s1">'portname'</span>
+</code></pre></div></div>
+
+<p>This command will print the list of port that we have installed and will note active if the port
+are currently in used</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>port installed
+</code></pre></div></div>
+
+<p>This command line is used to update the Macport itself. Options can be added such
+as <code class="language-plaintext highlighter-rouge">-d</code>, <code class="language-plaintext highlighter-rouge">-v</code>, <code class="language-plaintext highlighter-rouge">-f</code>, to see how it works search for <code class="language-plaintext highlighter-rouge">bash options</code>, for example.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>port selfupdate
+</code></pre></div></div>
+
+<p>Once in a while, we can run this line to uninstall inactive ports.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>port uninstall inactive
+</code></pre></div></div>
+
+<p>I know sometime we mess up the port and may have no way to fix it. This is how to uninstall
+all ports and lets start installing all again!</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>port <span class="nt">-fp</span> uninstall installed
+</code></pre></div></div>
+
+<p>Another useful port commands include:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">port search &lt;part_of_port_name&gt;</code> search ports that are closed/related to the given ports</li>
+  <li><code class="language-plaintext highlighter-rouge">port dependents &lt;port_name&gt;</code> list all dependent ports under <code class="language-plaintext highlighter-rouge">&lt;port_name&gt;</code></li>
+</ul>
+
+<h4 id="some-unix-command-line">Some UNIX command line</h4>
+<ul>
+  <li>To see the type history that you used before, use <code class="language-plaintext highlighter-rouge">history</code></li>
+  <li>Simple change the directory <code class="language-plaintext highlighter-rouge">cd ...</code> (<code class="language-plaintext highlighter-rouge">cd ..</code> is to move up one directory)</li>
+  <li>See the directory of python that we currently used <code class="language-plaintext highlighter-rouge">which python / which ipython</code></li>
+  <li><code class="language-plaintext highlighter-rouge">Emacs</code> shortcuts <a href="http://www.shortcutworld.com/en/linux/Emacs_23.2.1.html">link</a></li>
+  <li>How to create and custom ipython profile <a href="https://github.com/titipata/klab_ipython_notebook">link</a></li>
+</ul>
+
+  <ul class="share-buttons">
+  <a style="color:#3b5998;" href="https://www.facebook.com/sharer/sharer.php?u=http://kordinglab.com/2015/08/01/macports.html" title="Share on Facebook" target="_blank"><i class="fa fa-facebook-square fa-2x"></i></a>
+  <a style="color:#0084b4;" href="https://twitter.com/intent/tweet?text=http://kordinglab.com/2015/08/01/macports.html" title="Share on Twitter" target="_blank"><i class="fa fa-twitter-square fa-2x"></i></a>
+</ul>
+
+  <div id="disqus_thread"></div>
+</div>
+
+
+    <script id="dsq-count-scr" src="//kordinglab.disqus.com/count.js" async></script>
+    <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    var pageTracker = _gat._getTracker("UA-34145995-1");
+    pageTracker._trackPageview();
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-34145995-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-34145995-1');
+    </script>
+
+</body>
+</html>
