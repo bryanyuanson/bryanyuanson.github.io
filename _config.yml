@@ -5,8 +5,8 @@ description:        "Home for Konrad Mattar Lab. We study the neuroscience of me
 
 
 # URL
-url:                http://bryanyuan1.github.io/mattarlab
-baseurl:            /mattarlab
+url:                http://bryanyuanson.github.io/
+baseurl:            
 #baseurl:            "" #For Root Domain
 permalink:          /:year/:month/:day/:title.html
 
